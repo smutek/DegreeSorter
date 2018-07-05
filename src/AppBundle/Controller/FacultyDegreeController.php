@@ -8,20 +8,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-
-class FacultyController extends Controller
+class FacultyDegreeController extends Controller
 {
 
     /**
-     * @Route("/faculty-list")
+     * @Route("/faculty")
      */
     public function listAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $faculty = $em->getRepository('FacultyDegrees')->findAll();
+        $faculty_members  = $em->getRepository('AppBundle:FacultyDegree')->findAll();
 
-        return $this->render('facultyDegrees/list.html.twig',[
-          'faculty_list' => $faculty,
-          ]);
+        return $this->render("facultyDegree/list.html.twig", [
+          'faculty_members' => $faculty_members
+        ]);
     }
 }
