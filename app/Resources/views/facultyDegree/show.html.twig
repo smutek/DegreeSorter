@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h2>Degree information for {{ [faculty.facultyFirstName, faculty.facultyLastName] | join(' ') }}</h2>
+        <hr>
+        <h3>Degrees Held</h3>
+        <table class="table table-striped table-bordered table-condensed">
+            <thead>
+            <tr class="info">
+                <th>Degree Name</th>
+                <th>Degree Type</th>
+                <th>Primary Degree</th>
+                <th>Degree Level</th>
+                <th>Year Received</th>
+                <th>University</th>
+            </tr>
+            </thead>
+            {% for degree in degrees %}
+                <tr class="{{ degree.degreeIsHighest ? 'success' : 'default' }}">
+                    <td>{{ degree.degreeAbbreviation }}</td>
+                    <td>Info</td>
+                    <td>{{ degree.degreeIsHighest ? 'Yes' : 'No' }}</td>
+                    <td>Info</td>
+                    <td>{{ degree.degreeYear ?: 'Not Provided' }}</td>
+                    <td>{{ degree.degreeUniversity }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% dump(degrees) %}
+        <footer>
+            <p>
+                <small><a href="/faculty">Back</a></small>
+            </p>
+        </footer>
+    </div>
+{% endblock %}

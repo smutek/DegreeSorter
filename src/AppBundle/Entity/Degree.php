@@ -19,20 +19,11 @@ class Degree
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $abbreviation;
 
     /**
      * @ORM\Column(type="string")
      */
-    private $weight;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $level;
+    private $name;
 
     /**
      * @ORM\Column(type="boolean")
@@ -40,7 +31,8 @@ class Degree
     private $isMedical;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DegreeType")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $typeID;
 
@@ -63,49 +55,17 @@ class Degree
     /**
      * @return mixed
      */
-    public function getAbbreviation()
+    public function getName()
     {
-        return $this->abbreviation;
+        return $this->name;
     }
 
     /**
-     * @param mixed $abbreviation
+     * @param mixed $name
      */
-    public function setAbbreviation($abbreviation): void
+    public function setName($name): void
     {
-        $this->abbreviation = $abbreviation;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @param mixed $weight
-     */
-    public function setWeight($weight): void
-    {
-        $this->weight = $weight;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLevel()
-    {
-        return $this->level;
-    }
-
-    /**
-     * @param mixed $level
-     */
-    public function setLevel($level): void
-    {
-        $this->level = $level;
+        $this->name = $name;
     }
 
     /**
@@ -130,14 +90,6 @@ class Degree
     public function getTypeID()
     {
         return $this->typeID;
-    }
-
-    /**
-     * @param mixed $typeID
-     */
-    public function setTypeID($typeID): void
-    {
-        $this->typeID = $typeID;
     }
 
 }

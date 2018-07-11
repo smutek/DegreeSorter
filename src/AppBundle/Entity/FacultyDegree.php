@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FacultyDegreeRepository")
  * @ORM\Table(name="faculty_degree")
  */
 class FacultyDegree
@@ -21,7 +21,7 @@ class FacultyDegree
     /**
      * @ORM\Column(type="integer")
      */
-    private $faculyID;
+    private $facultyID;
 
     /**
      * @ORM\Column(type="string")
@@ -72,17 +72,17 @@ class FacultyDegree
     /**
      * @return mixed
      */
-    public function getFaculyID()
+    public function getFacultyID()
     {
-        return $this->faculyID;
+        return $this->facultyID;
     }
 
     /**
-     * @param mixed $faculyID
+     * @param mixed $facultyID
      */
-    public function setFaculyID($faculyID): void
+    public function setFacultyID($facultyID): void
     {
-        $this->faculyID = $faculyID;
+        $this->facultyID = $facultyID;
     }
 
     /**

@@ -9,19 +9,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-class DegreesController extends Controller
+class RandomFacultyController extends Controller
 {
 
     /**
-     * @Route("/degrees")
+     * @param $facultyID
+     * @Route("/faculty/{facultyName}")
      */
-    public function listAction()
+    public function showAction($facultyID)
     {
-        $em      = $this->getDoctrine()->getManager();
-        $degrees = $em->getRepository('AppBundle:Degrees')->findAll();
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('degrees/list.html.twig', [
-          'degrees' => $degrees,
-        ]);
     }
 }

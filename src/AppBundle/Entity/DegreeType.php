@@ -16,6 +16,7 @@ class DegreeType
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Degree", mappedBy="typeID")
      */
     private $id;
 
