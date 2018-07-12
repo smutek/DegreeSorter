@@ -10,8 +10,7 @@ class FacultyDegreeRepository extends EntityRepository
         return $this->createQueryBuilder('facultyDegree')
           ->andWhere('facultyDegree.facultyID LIKE :facultyID')
           ->setParameter('facultyID', $facultyID)
-          ->join('facultyDegree.degreeAbbreviation', '')
-          ->join('degreeAbbreviation.typeID', 'typeID')
+          ->join('facultyDegree.degreeAbbreviation', 'degree_abbreviation')
           ->getQuery()
           ->execute();
     }
