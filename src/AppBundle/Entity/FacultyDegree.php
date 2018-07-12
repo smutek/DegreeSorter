@@ -40,6 +40,8 @@ class FacultyDegree
 
     /**
      * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Degree")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $degreeAbbreviation;
 

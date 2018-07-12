@@ -22,6 +22,7 @@ class Degree
 
     /**
      * @ORM\Column(type="string")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\FacultyDegree", mappedBy="degreeAbbreviation")
      */
     private $name;
 
